@@ -1,0 +1,42 @@
+import pygame
+from collections import deque
+
+w = 0
+m = deque
+baserow = [0, 0, 0, 0, 0, 1, 1, 1, 1, 1]
+skytile = pygame.image.load("sky.bmp")
+skyrect = skytile.get_rect()
+groundtile = pygame.image.load("ground.gmp")
+groundrect = groundtile.get_rect()
+tilesize = 64
+
+def addrow(otherrow):
+	return baserow
+
+def shiftright():
+	m.popleft()
+	m.append(addrow(d[-1]))
+
+def shiftleft():
+	m.pop()
+	m.appendleft(addrow(d[0]))
+
+def init(width):
+	w = width
+	for i in range(width):
+		m.append(baserow)
+
+def renderlevel(display):
+	x, y = 0, 0
+	for i in range(w):
+		for j in baserow:
+			if j == 0:
+				display.blit(groundtile, (x, y))
+			else:
+				display.blit(skytile, (x, y))
+			y += tilesize
+			
+		x += tilesize
+		
+
+			

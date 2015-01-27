@@ -14,9 +14,9 @@ ballrect = ball.get_rect()
 
 while 1:
 	if keypressed[2] == 0 and keypressed[3] == 0:
-		speed[0] = (speed[0] + 0.5) / 2
+		speed[0] = (speed[0]) / 2
 	if keypressed[0] == 0 and keypressed[1] == 0:
-		speed[1] = (speed[1] + 0.5) / 2
+		speed[1] = (speed[1]) / 2
 	for event in pygame.event.get():
 		if event.type == QUIT: sys.exit()
 		elif event.type == KEYDOWN: 
